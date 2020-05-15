@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">WeFarmers</string>
+    <string name="logo">Logo</string>
+    <string name="username">Email or Phone</string>
+    <string name="pass">Enter Password</string>
+    <string name="login">Log In</string>
+    <string name="newuser">New user?SignUp</string>
+    <string name="name">Full Name</string>
+    <string name="email">Email ID</string>
+    <string name="phone">Enter Number</string>
+    <string name="next">Next</string>
+    <string name="entotp">Enter OTP</string>
+    <string name="verify">Submit</string>
+    <string name="farm">Farmer</string>
+    <string name="whole">Wholeseller</string>
+    <string name="signup">Sign Up</string>
+    <string name="occupation">Select Occupation :</string>
+</resources>
