@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class OTPActivity extends AppCompatActivity {
+public class GenerateOTPActivity extends AppCompatActivity {
     EditText mphone;
     Button regnum;
     FirebaseAuth mAuth;
@@ -18,7 +18,7 @@ public class OTPActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_o_t_p);
+        setContentView(R.layout.activity_generate_o_t_p);
 
         mphone=(EditText)findViewById(R.id.phonem);
         regnum=(Button)findViewById(R.id.subtim);
@@ -34,7 +34,7 @@ public class OTPActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Intent intent=new Intent(OTPActivity.this,VeriActivity.class);
+                    Intent intent=new Intent(GenerateOTPActivity.this, OTPVerifyActivity.class);
                     intent.putExtra("PHoneNo", PhoneNumber);
                     startActivity(intent);
                     finish();

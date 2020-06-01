@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OTPActivity" />
+        <activity android:name=".GenerateOTPActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".VeriActivity" />
+        <activity android:name=".OTPVerifyActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SplashActivity">

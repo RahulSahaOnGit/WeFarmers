@@ -20,7 +20,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class VeriActivity extends AppCompatActivity {
+public class OTPVerifyActivity extends AppCompatActivity {
     EditText otp;
     Button sub;
     FirebaseAuth mAuth;
@@ -29,7 +29,7 @@ public class VeriActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_veri);
+        setContentView(R.layout.activity_o_t_p_verify);
         otp=(EditText)findViewById(R.id.verytxt);
         sub=(Button)findViewById(R.id.subt);
         mAuth=FirebaseAuth.getInstance();
@@ -65,7 +65,7 @@ public class VeriActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
-                    Intent intent=new Intent(VeriActivity.this,SignUpActivity.class);
+                    Intent intent=new Intent(OTPVerifyActivity.this,SignUpActivity.class);
                     intent.putExtra("phone",number);
                     startActivity(intent);
                     finish();
@@ -80,7 +80,7 @@ public class VeriActivity extends AppCompatActivity {
                 number,        // Phone number to verify
                 60,                 // Timeout duration
                 TimeUnit.SECONDS,   // Unit of timeout
-                VeriActivity.this, new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                OTPVerifyActivity.this, new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
                     @Override
                     public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
@@ -100,7 +100,7 @@ public class VeriActivity extends AppCompatActivity {
                     @Override
                     public void onVerificationFailed(@NonNull FirebaseException e) {
 
-                        Toast.makeText(VeriActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(OTPVerifyActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
                     }
                 }              // Activity (for callback binding)
