@@ -199,13 +199,15 @@ public class SignUpActivity extends AppCompatActivity {
         if(requestCode==RESULT_LOAD_IMAGE && resultCode==RESULT_OK && data!=null)
         {
             selectedImage=data.getData();
+            profile_image.setImageURI(selectedImage);
+            /*
             String filePathColumn[]={MediaStore.Images.Media.DATA};
             Cursor cursor=getContentResolver().query(selectedImage,filePathColumn,null,null,null);
             cursor.moveToFirst();
             int columnIndex=cursor.getColumnIndex(filePathColumn[0]);
             String picturePath=cursor.getString(columnIndex);
             cursor.close();
-            profile_image.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+            profile_image.setImageBitmap(BitmapFactory.decodeFile(picturePath));*/
             profile_update_flag=1;
         }
     }
