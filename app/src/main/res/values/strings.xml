@@ -15,4 +15,9 @@
     <string name="whole">Wholeseller</string>
     <string name="signup">Sign Up</string>
     <string name="occupation">Select Occupation :</string>
+    <string name="select_state">Select State:</string>
+    <string name="select_district">Select District:</string>
+    <string name="locality">Locality</string>
+    <string name="log_out">LOG OUT</string>
+    <string name="enter">ENTER</string>
 </resources>

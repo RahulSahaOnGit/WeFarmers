@@ -1,34 +1,25 @@
 package com.example.wefarmer;
 
 public class UserHelperClass {
-    String name, email, password, typeofperson,phone;
+    String name, user_id, typeofperson, state, district, locality, latitude, password, longitude, phone;
 
     public UserHelperClass() {
 
     }
 
-    public UserHelperClass(String name, String email, String password,String typeofperson,String phone ) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.typeofperson = typeofperson;
-        this.phone = phone;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getTypeofperson() {
-        return typeofperson;
-    }
-
-    public void setTypeofperson(String typeofperson) {
-        this.typeofperson = typeofperson;
+    public UserHelperClass(String name, String user_id, String typeofperson,
+                           String state, String district, String locality, String latitude,
+                           String password, String longitude, String phone ) {
+        this.name=name;
+        this.user_id=user_id;
+        this.typeofperson=typeofperson;
+        this.state=state;
+        this.district=district;
+        this.locality=locality;
+        this.latitude=latitude;
+        this.password=password;
+        this.longitude=longitude;
+        this.phone=phone;
     }
 
     public String getName() {
@@ -39,12 +30,52 @@ public class UserHelperClass {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUser_id() {
+        return user_id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getTypeofperson() {
+        return typeofperson;
+    }
+
+    public void setTypeofperson(String typeofperson) {
+        this.typeofperson = typeofperson;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getLocality() {
+        return locality;
+    }
+
+    public void setLocality(String locality) {
+        this.locality = locality;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
 
     public String getPassword() {
@@ -55,5 +86,19 @@ public class UserHelperClass {
         this.password = password;
     }
 
+    public String getLongitude() {
+        return longitude;
+    }
 
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 }

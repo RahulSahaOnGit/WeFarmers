@@ -9,11 +9,14 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 
+//currently not getting used, loginactivity and otpverifyactivity are doin the task
 public class GenerateOTPActivity extends AppCompatActivity {
     EditText mphone;
     Button regnum;
     FirebaseAuth mAuth;
+    DatabaseReference UsersRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,7 @@ public class GenerateOTPActivity extends AppCompatActivity {
         regnum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String PhoneNumber="+"+"91"+mphone.getText().toString();
+                final String PhoneNumber="+"+"91"+mphone.getText().toString();
                 if(PhoneNumber.isEmpty() || PhoneNumber.length()<10)
                 {
                     mphone.setError("Enter proper phone number");
@@ -34,12 +37,19 @@ public class GenerateOTPActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Intent intent=new Intent(GenerateOTPActivity.this, OTPVerifyActivity.class);
-                    intent.putExtra("PHoneNo", PhoneNumber);
-                    startActivity(intent);
-                    finish();
+                    sendUsertoVerifyOTPActivity(PhoneNumber);
+
                 }
             }
         });
     }
+
+    private void sendUsertoVerifyOTPActivity(String PhoneNumber) {
+        Intent i = new Intent(GenerateOTPActivity.this, OTPVerifyActivity.class);
+        i.putExtra("PHoneNo", PhoneNumber);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
+        finish();
+    }
+
 }
