@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements FirebaseAuth.AuthStateListener{
 
     //TextView newuser;
     EditText phone;
@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
 
     FirebaseUser user;
     FirebaseAuth firebaseAuth;
-    FirebaseAuth.AuthStateListener mAuthListener;
+    FirebaseAuth.AuthStateListener authStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,11 +73,13 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        user= FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseAuth.getInstance().addAuthStateListener(this);
+        /*user= FirebaseAuth.getInstance().getCurrentUser();
         if(user!=null)
         {
             SendUserToHomeActivity();
-        }
+        }*/
+
     }
 
     private void sendUsertoOTPVerifyActivity() {
@@ -87,10 +89,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void SendUserToHomeActivity() {
-        finish();
         Intent i=new Intent(LoginActivity.this,HomeActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
+        finish();
     }
 
+    @Override
+    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+        if(firebaseAuth.getCurrentUser()!=null)
+            SendUserToHomeActivity();
+    }
 }
